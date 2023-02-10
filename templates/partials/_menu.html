@@ -1,0 +1,22 @@
+{% load static %}
+
+
+<!-- ##### Header Area Start ##### -->
+
+<header>
+    <nav class="navbar">
+      <ul class="container-fluid justify-content-evenly">
+        {% if user.is_authenticated %}
+
+        <li><a href="{% url 'logout' %}" class="btnLogout col-4 col-md-4 col-lg-4 text-decoration-none">Sair</a></li>
+
+        {% else %}
+
+        <li><a href="{% url 'login' %}" class="btnLogin text-decoration-none">Entrar</a></li>
+        
+        {% endif %}
+      </ul>
+    </nav>
+</header>
+
+  <!-- ##### Header Area End ##### -->

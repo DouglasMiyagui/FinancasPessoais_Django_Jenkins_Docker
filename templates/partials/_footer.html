@@ -1,0 +1,19 @@
+{% load static %}
+
+<!-- footer Start -->
+<footer>
+  <nav class="navbar">
+    <ul class="container-fluid justify-content-around align-bottom">
+      {% if user.is_authenticated %}
+      <li><a href="{% url 'logout' %}" class="btnLogout text-decoration-none">Sair</a></li>
+      <li><h2 class="align-bottom" style="color:white;">Finanças Pessoais</h2></li>
+      <li><h5 class=" text-end" style="color:lightgray;">Desenvolvido por Douglas Miyagui</h5></li>
+      {% else %}
+      <li><a href="{% url 'login' %}" class="btnLogin text-decoration-none">Entrar</a></li>
+      <li><h1 class="align-bottom" style="color:white;">Finanças Pessoais</h1></li>
+      <li><h5 class=" text-end" style="color:lightgray;">Desenvolvido por Douglas Miyagui</h5></li>
+      {% endif %}
+    </ul>
+  </nav>
+</footer>
+<!-- footer End -->

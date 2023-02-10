@@ -1,0 +1,53 @@
+{% extends 'base.html' %}
+{% load static %}
+{% block content %}
+
+<div class="d-flex justify-content-center ">
+  <div class="col-12 col-md-4 col-lg-4 section-margin-100-100 boxPagina" style="padding: 20px 20px 20px;">
+    <!-- ##### Contact Form Area Start ##### -->
+    <div class="contact-area">
+        <div class="container">
+            <div class="row">
+                <div class="col-12">
+                    <div class="text-center">
+                        <h2>Criar Conta</h2>
+                    </div>
+                </div>
+            </div>
+            {% include 'partials/_alertas.html' %}
+            <div class="row">
+                <div class="col-12">
+                    <div class="contact-form-area">
+                        <form action="{% url 'cadastrar_usuario' %}" method="POST">
+                            {% csrf_token %}
+                            <div class="row">
+                                <div class="col-12 col-lg-12" style="margin-top: 3px;">
+                                    <label for="nome"><b>Nome completo</b></label>
+                                    <input type="text" class="form-control" name="nome" placeholder="Digite seu nome" required>
+                                </div>
+                                <div class="col-12 col-lg-12" style="margin-top: 3px;">
+                                    <label for="email"><b>Email</b></label>
+                                    <input type="email" class="form-control" name="email" placeholder="Digite seu Email" required>
+                                </div>
+                                <div class="col-12 col-lg-6" style="margin-top: 3px;">
+                                    <label for="password"><b>Digitar Senha</b></label>
+                                    <input type="password" class="form-control" name="password" placeholder="Digite sua senha" required>
+                                </div>
+                                <div class="col-12 col-lg-6" style="margin-top: 3px;">
+                                    <label for="password2"><b>Repetir Senha</b></label>
+                                    <input type="password" class="form-control" name="password2" placeholder="Digite sua senha novamente" required>
+                                </div>
+                                <div class="col-12 text-center" style="margin-top: 20px;">
+                                    <button class="btnLoginVs" type="submit">Cadastrar</button>
+                                </div>
+                            </div>
+                        </form>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+  </div>
+</div>
+
+{% endblock %}
