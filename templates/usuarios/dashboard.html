@@ -2,9 +2,321 @@
 {% load static %}
 {% block content %}
 
+<!-- main start-->
+<!-- Bloco-1 start-->
+  <!-- box-1 start-->
+  <div class="box-1">
+    <nav class="navbar justify-content-evenly" style="padding: 10px 2px 0px;">
+      <ul class="container-fluid ">
+        <!-- Button cadastro_receita -->
+        <li><button type="button" class="btnPessoal btn-light" style="padding: 3px 10px 3px;" data-bs-toggle="modal" data-bs-target="#cadastrar_receita">Cadastrar Receita</button></li>
+        <li><div class="row col-12 col-lg-10 boxP">
+              <div class="col-6 col-lg-6"><label for="email"><b>Receita</b></label></div>
+              <div class="col-6 col-lg-6 "><input type="text" class="form-control" id="total_receita" name="total_receita" placeholder="" value=""></div>
+            </div>
+        </li>
+        <li><div class="row col-12 col-lg-10 boxP">
+              <div class="col-6 col-lg-6"><label for="email"><b>Total</b></label></div>
+              <div class="col-6 col-lg-6 "><input type="text" class="form-control" id="saldo" name="saldo" placeholder="" value=""></div>
+            </div>
+        </li>
+        <li><div class="row col-12 col-lg-10 boxP">
+              <div class="col-6 col-lg-6"><label for="email"><b>Despesa</b></label></div>
+              <div class="col-6 col-lg-6 "><input type="text" class="form-control" id="total_despesa" name="total_despesa" placeholder="" value=""></div>
+            </div>
+        </li>
+        <!-- Button cadastro_despesa -->
+        <li><button type="button" class="btnPessoal btn-light" style="padding: 3px 10px 3px;" data-bs-toggle="modal" data-bs-target="#cadastrar_despesa">Cadastrar Despesa</button></li>
+      </ul>
+    </nav>
+  </div>
 
 
-<h1>Dashboard</H1>
+  <!-- Bloco-1 start-->
 
+    <!-- box-2 start-->
+    <div class="col-12 col-md-6 col-lg-6 box">
+      <h3 class= "text-center">Receitas</h3>
+      <form id="col-12 col-md-12 col-lg-12" method="post" novalidate>
+        <input type="hidden" name="csrfmiddlewaretoken" value="y7RA5mqInWKA3ygncB9JkhevCeiPODrG7bx6VT7a7FXq0UqhGBmTNPAQbdEc9xrW">
+        <div class="results">
+          <table id="result_list">
+            <thead>
+              <tr class="text-left">
+                <th scope="col">
+                  <div class="text-left">Data</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Descrição</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Categoria</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Valor</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Forma</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Pago</div>
+                </th>
+                <th scope="col">
+                  <div class="text"></div>
+                </th>
+                <th scope="col">
+                  <div class="text"></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if receitas %}
+              {% for receita in receitas %}
+              <tr>
+                <td><a class="text-decoration-none text-black" href="{% url 'receita' receita.id %}">{{ receita.data }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'receita' receita.id %}">{{ receita.descricao }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'receita' receita.id %}">{{ receita.categoria }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'receita' receita.id %}">{{ receita.valor }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'receita' receita.id %}">{{ receita.forma }}</a></td>
+                <td><a href="{% url 'receita' receita.id %}"><img src="/static/admin/img/icon-yes.svg" alt="True"></a></td>
+                <td><a href="{% url 'editar_receita' receita.id %}" type="button" class="btn btn-info" style="--bs-btn-padding-y: .01rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .55rem;">Editar</a></td>
+                <td><a href="{% url 'apagar_receita' receita.id %}" type="button" class="btn btn-danger" style="--bs-btn-padding-y: .01rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .55rem;">Apagar</a></td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+      </form>
+    </div>
+    <!-- box-2 End -->
+    <!-- box-1 start-->
+    <div class="col-12 col-md-4 col-lg-6 box">
+      <h3 class="text-center">Despesas</h3>
+      <form class="col-12 col-md-12 col-lg-12" method="post" novalidate>
+        <input type="hidden" name="csrfmiddlewaretoken" value="y7RA5mqInWKA3ygncB9JkhevCeiPODrG7bx6VT7a7FXq0UqhGBmTNPAQbdEc9xrW">
+<!-- Tabela -->
+        <div class="results">
+          <table id="result_list">
+            <thead>
+              <tr>
+                <th scope="col">
+                  <div class="text">Data</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Descrição</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Categoria</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Valor</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Forma</div>
+                </th>
+                <th scope="col">
+                  <div class="text">Pago</div>
+                </th>
+                <th scope="col">
+                  <div class="text"></div>
+                </th>
+                <th scope="col">
+                  <div class="text"></div>
+                </th>
+              </tr>
+            </thead>
+            <tbody>
+              {% if despesas %}
+              {% for despesa in despesas %}
+              <tr>
+                <td><a class="text-decoration-none text-black" href="{% url 'despesa' despesa.id %}">{{ despesa.data }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'despesa' despesa.id %}">{{ despesa.descricao }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'despesa' despesa.id %}">{{ despesa.categoria }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'despesa' despesa.id %}">{{ despesa.valor }}</a></td>
+                <td><a class="text-decoration-none text-black" href="{% url 'despesa' despesa.id %}">{{ despesa.forma }}</a></td>
+                <td><a class="float-end" href="{% url 'despesa' despesa.id %}"><img src="/static/admin/img/icon-yes.svg" alt="True"></a></td>
+                <td><a href="{% url 'editar_despesa' despesa.id %}" type="button" class="btn btn-info" style="--bs-btn-padding-y: .01rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .55rem;">Editar</a></td>
+                <td><a href="{% url 'apagar_despesa' despesa.id %}" type="button" class="btn btn-danger" style="--bs-btn-padding-y: .01rem; --bs-btn-padding-x: .2rem; --bs-btn-font-size: .55rem;">Apagar</a></td>
+              </tr>
+              {% endfor %}
+              {% else %}
+              {% endif %}
+            </tbody>
+          </table>
+        </div>
+        <p class="paginator"></p>
+      </form>
+    </div>
+    <!-- box-1 End -->
+
+
+  <!-- bloco-1 end-->
+
+  <!-- bloco-2 start-->
+
+    <!-- box-1 start -->
+    <div class="col-12 col-md-6 col-lg-6 box">
+    </div>
+    <!-- box-1 End -->
+    <!-- box-2 start-->
+
+    <!-- box-2 end-->
+
+  <!-- bloco-2 end-->
+
+  <!-- bloco-3 start-->
+
+   <!-- bloco-3 end-->
+
+
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="cadastrar_despesa" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5 section-heading" id="exampleModalLabel">Cadastrar Despesa ({{ user.username }})</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <div class="modal-body">
+          <!-- Cadastro_Despesa start-->
+          {% include 'partials/_alertas.html' %}
+          <div class="row">
+            <div class="col-12">
+              <div class="contact-form-area">
+                <form action="{% url 'cadastrar_despesa' %}" method="post">
+                {% csrf_token %}
+                  <div class="row">
+                    <div>
+                      <label for="descricao"><b>Descricao:</b></label>
+                      <input type="text" id="descricao" name="descricao" class="vTextField" maxlength="100" required>
+                    </div>
+                    <div>
+                      <label for="file"><b>Categoria:</b></label>
+                      <select name="categoria" >
+                        <option value="alimentacao" selected="">Alimentação</option>
+                        <option value="moradia">Moradia</option>
+                        <option value="transporte">Transporte</option>
+                        <option value="saude">Saúde</option>
+                        <option value="educacao">Educação</option>
+                        <option value="lazer">Lazer</option>
+                        <option value="extra">Extra</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="file"><b>Valor:</b></label>
+                      <input type="number" name="valor" step="0.01" required>
+                    </div>
+                    <div>
+                      <label for="file"><b>Forma:</b></label>
+                      <select name="forma">
+                        <option value="debito" selected="">Débito</option>
+                        <option value="credito">Crédito</option>
+                        <option value="dinheiro">Dinheiro</option>
+                        <option value="pix">Pix</option>
+                        <option value="transferencia">Transferência</option>
+                        <option value="outras">Outras</option>
+                      </select>
+                    </div>
+                    <div>
+                      <label for="file"><b>Data:</b></label>
+                      <input type="text" name="data" value="2022-12-02" class="vDateField" size="10" id="data"><span class="datetimeshortcuts">&nbsp;<a href="#">Hoje</a>&nbsp;|&nbsp;<a href="#" id="calendarlink0"><span class="date-icon" title="Escolha uma data"></span></a></span><input type="hidden" name="initial-data" value="2022-12-02" id="initial-id_data">
+                    </div>
+                    <!-- bloco-1 end
+                    <div class="checkbox-row">
+                      <input type="checkbox" name="pago" id="id_pago" checked="True">
+                      <label class="vCheckboxLabel"><b>Pago</b></label>
+                    </div>      -->
+                    <div>
+                      <button type="button" class="btnPessoal" data-bs-dismiss="modal">Fechar</button>
+                      <button class="btnPessoal" type="submit">Salvar</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+            <br class="clear">
+          </div>
+        </div>
+        <!-- Cadastro_Despesa End -->
+      </div>
+    </div>
+  </div>
+
+
+  <!-- Modal -->
+  <div class="modal fade" id="cadastrar_receita" tabindex="-1" aria-labelledby="exampleModalLabel" aria-hidden="true">
+    <div class="modal-dialog">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h1 class="modal-title fs-5" id="exampleModalLabel">Cadastrar Receita</h1>
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+        </div>
+        <!-- Cadastro_Receita start-->
+        <div class="modal-body">
+          {% include 'partials/_alertas.html' %}
+          <div class="row">
+            <div class="col-12">
+              <div class="contact-form-area">
+                <form action="{% url 'cadastrar_receita' %}" method="post">
+                {% csrf_token %}
+                  <div class="row">
+                    <div class="field-descricao">
+                      <label for="descricao"><b>Descricao:</b></label>
+                      <input type="text" id="descricao" name="descricao" class="vTextField" maxlength="100" required>
+                    </div>
+                    <div class="field-categoria">
+                      <label for="file"><b>Categoria:</b></label>
+                      <select name="categoria">
+                        <option value="salario" selected>Salário</option>
+                        <option value="vale">Vale</option>
+                        <option value="bonus">Bonus</option>
+                        <option value="comissao">Comissão</option>
+                        <option value="freelancer">Freelancer</option>
+                        <option value="extra">Extra</option>
+                      </select>
+                    </div>
+                    <div class="field-valor">
+                      <label for="file"><b>Valor:</b></label>
+                      <input type="number" name="valor" required>
+                    </div>
+                    <div class="field-forma">
+                      <label for="file"><b>Forma:</b></label>
+                      <select name="forma">
+                        <option value="conta corrente">Conta Corrente</option>
+                        <option value="dinheiro" selected>Dinheiro</option>
+                        <option value="conta">Conta</option>
+                        <option value="outros">Outros</option>
+                      </select>
+                    </div>
+                    <div class="field-data">
+                      <label for="file"><b>Data:</b></label>
+                      <input type="text" name="data" value="2022-12-02" class="vDateField" size="10" id="data"><span class="datetimeshortcuts">&nbsp;<a href="#">Hoje</a>&nbsp;|&nbsp;<a href="#" id="calendarlink0"><span class="date-icon" title="Escolha uma data"></span></a></span><input type="hidden" name="initial-data" value="2022-12-02" id="initial-data">
+                      <input type="hidden" name="initial-data" value="2022-12-14" id="initial-id_data">
+                    </div>
+                      <!--      <div class="field-pago">
+                              <div class="checkbox-row">
+                                <input type="checkbox" name="pago" id="id_pago" checked><label class="vCheckboxLabel" for="id_pago">Pago</label>          
+                              </div>
+                            </div>
+                       -->
+                    <div class="submit-row">
+                      <button type="button" class="btnPessoal" data-bs-dismiss="modal">Fechar</button>
+                      <button type="submit" class="btnPessoal">Salvar</button>
+                    </div>
+                  </div>
+                </form>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- main end-->
 
 {% endblock %}
