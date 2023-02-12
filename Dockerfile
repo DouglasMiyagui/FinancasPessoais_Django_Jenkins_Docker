@@ -6,7 +6,6 @@ WORKDIR /usr/src/app
 COPY requirements.txt ./
 # Instalando os requerimentos com o PIP
 RUN pip install --no-cache-dir -r requirements.txt
-RUN python manage.py collectstatic --no-input
 # Expondo a porta da APP
 EXPOSE 8000
 # Executando o comando para subir a aplicacao
