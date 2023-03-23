@@ -1,20 +1,20 @@
-CATEGORIA_RECEITA = {
+CATEGORIA_RECEITA = (
     ('salario', 'Salário'),
     ('vale', 'Vale'),
     ('bonus', 'Bonus'),
     ('comissao', 'Comissão'),
     ('freelance', 'Freelance'),
     ('extra', 'Extra'),
-}
-FORMA_RECEITA = {
+)
+FORMA_RECEITA = (
     ('dinheiro', 'Dinheiro'),
     ('conta', 'Conta'),
     ('outros', 'Outros'),
-}
-STATUS_RECEITA = {
+)
+STATUS_RECEITA = (
     ('1', 'Pago'),
     ('2', 'A Pagar'),
-}
+)
 
 CATEGORIA_DESPESA = (
     ('alimentacao', 'Alimentação'),
