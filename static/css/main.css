@@ -1,0 +1,263 @@
+/* http://meyerweb.com/eric/tools/css/reset/
+   v2.0 | 20110126
+   License: none (public domain)
+*/
+
+html, body, div, span, applet, object, iframe,
+h1, h2, h3, h4, h5, h6, p, blockquote, pre,
+a, abbr, acronym, address, big, cite, code,
+del, dfn, em, img, ins, kbd, q, s, samp,
+small, strike, strong, sub, sup, tt, var,
+b, u, i, center,
+dl, dt, dd, ol, ul, li,
+fieldset, form, label, legend,
+table, caption, tbody, tfoot, thead, tr, th, td,
+article, aside, canvas, details, embed,
+figure, figcaption, footer, header, hgroup,
+menu, nav, output, ruby, section, summary,
+time, mark, audio, video {
+	margin: 0;
+	padding: 0;
+	border: 0;
+	font-size: 100%;
+	font: courier;
+	vertical-align: baseline;
+}
+/* HTML5 display-role reset inherit for older browsers */
+article, aside, details, figcaption, figure,
+footer, header, hgroup, menu, nav, section {
+	display: block;
+}
+ol, ul {
+	list-style: none;
+}
+blockquote, q {
+	quotes: none;
+}
+blockquote:before, blockquote:after,
+q:before, q:after {
+	content: '';
+	content: none;
+}
+table {
+	border-collapse: collapse;
+	border-spacing: 0;
+}
+html {
+    min-width: 100%;
+    min-height: 100%;
+}
+body {
+    max-height: 100%;
+    max-width: 100%;
+}
+
+ul li:hover a {
+    color: darkcyan;
+    background-color: whitesmoke;
+    border: 4px solid darkcyan;
+    text-decoration: none;
+}
+button:hover {
+    color: darkcyan;
+    background-color: whitesmoke;
+    border: 4px solid darkcyan;
+    text-decoration: none;
+}
+
+a:hover {
+    color: none;
+    background-color: whitesmoke;
+    border: 1px solid darkcyan;
+    text-decoration: none;
+}
+
+.boxPagina {
+    height: fit-content;
+    width: fit-content;      
+    background-color: white;
+    border: 10px double #999;
+    box-shadow: 0px 0px 10px 0 gray;
+    padding: 30px 60px 30px;
+}
+.section-margin-100-100{
+    margin-top: 65px;
+    margin-bottom: 65px;
+}
+
+/* ##### Header Area Start ##### CSS */
+header {
+    position:relative;
+    width: 100%;
+    height:100%;
+    box-shadow: 0px 2px 8px 0 rgba(0,0, 0, 0.2);
+}
+.flex-container {
+    display: flex;
+    justify-content: space-between;
+    margin: 0;
+    top: 50%;
+    padding: 5px 100px 5px;
+    box-shadow: 0px -8px 8px 0 rgba(0,0, 0, 0.2), 0px -8px 8px 0 rgba(0, 0, 0, 0.2);
+}
+/* ##### Header Area End ##### CSS */
+
+/* ##### Main Area Start ##### CSS */
+main{
+    background-color: slategrey;
+}
+/* ##### Section Cadastro_Extrato Start ##### CSS */
+.cadastro_extrato{
+    padding: 10px 5px 10px ; 
+}
+/* ##### Cadastro Start ##### CSS */
+.cadastro {
+    width: 100%;
+    background-color: white;
+    padding: 10px 5px 10px;
+    border: 10px double slategrey;
+    font-size: 100%;
+    margin: 10px 5px 10px 20px;
+}
+.btnReceita {
+    color: white;
+    background-color: royalblue;
+    border: 4px solid white;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 0 gray;
+    border-radius: 40px;
+    width: 100%;
+}
+.btnDespesa {
+    color: white;
+    background-color: crimson;
+    font-size: 100%;
+    font-weight: bold;
+    box-shadow: 0px 0px 8px 0 gray;
+    border-radius: 40px;
+    border: 4px solid white;
+    width: 100%;
+}
+/* ##### Extrato Start ##### CSS */
+.extrato{
+    background-color: white;
+    width: 100%;
+    padding: 10px 5px 10px;
+    border: 10px double slategrey;
+    font-size: 100%;
+    margin: 10px 5px 10px 20px; /* T R B L */
+}
+.table_extrato {
+    width: 100%;
+    
+}
+.tbody_Extrato {
+    text-decoration: none;
+}
+table.tablesorter thead tr .header {
+	background-image: url(bg.gif);
+	background-repeat: no-repeat;
+	background-position: center right;
+	cursor: pointer;
+}
+thead th {
+    border-top: 3px solid darkcyan;
+    border-bottom: 3px solid darkcyan;
+    text-transform: uppercase;
+    font-weight: bold;
+    max-width: 100%;
+    font-size: 0.6125rem;
+    background: lightgray;
+    vertical-align: center;
+    
+}
+.tr_Despesa {
+    text-decoration: none;
+    
+}
+.tr_Receita {
+    text-decoration: none;
+}
+td {
+    font-size: 0.6125rem;
+    vertical-align: center;
+    
+}
+.btnEditar {
+    color: royalblue;
+    background-color: white;
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 25px;
+    border: 0.8px solid royalblue;
+    width: 75%; 
+}
+.btnApagar {
+    color: crimson;
+    background-color: white;
+    font-size: 100%;
+    font-weight: bold;
+    text-align: center;
+    border-radius: 40px;
+    border: 1px solid crimson;
+    width: 50%;
+}
+tr:nth-child(odd), .row-form-errors {
+    background: white;
+}
+tr:nth-child(even) {
+    background: rgb(228, 227, 227);
+}
+
+
+/* ##### Section Cadastro_Extrato End ##### CSS */
+
+
+
+
+
+/* ##### Main Area End ##### CSS */
+
+/* ##### Footer Area Start ##### CSS */
+footer{
+    position:fixed;
+    float:bottom;
+    width: 100%;
+    height: 10%;
+    bottom: 0;
+    background: black;
+}
+.btnLogin {
+    color: royalblue;
+    background-color: white;
+    border: 4px solid royalblue;
+    box-shadow: 0px 0px 8px 0 gray;
+    font-size: 100%;
+    font-weight:bold ;
+    border-radius: 40px;
+    padding: 3px 60px 3px;
+}
+.btnLoginVs {
+    color: white;
+    background-color: royalblue;
+    border: 4px solid white;
+    box-shadow: 0px 0px 8px 0 gray;
+    font-size: 100%;
+    font-weight:bold ;      
+    border-radius: 40px;
+    padding: 3px 60px 3px;
+}
+.btnLogout {
+    color: crimson;
+    background-color: white;
+    border: 4px solid crimson;
+    font-size: 100%;
+    font-weight: bold ;
+    box-shadow: 0px 0px 8px 0 gray;
+    border-radius: 40px;
+    width: 100%;
+    padding: 3px 30px 3px;
+}
+/* ##### Footer Area End ##### CSS */

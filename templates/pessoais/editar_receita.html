@@ -2,72 +2,16 @@
 {% load static %}
 {% block content %}
 
-
-<div class="contact-area section-padding">
-  <div class="container">
-    <div class="row">
-      <div class="col-12">
-        <div class="section-heading">
-          <h3>Editar Receita de {{ user.username }} </h3>
-        </div>
-      </div>
-    </div>
-    {% include 'partials/_alertas.html' %}
-    <div class="row">
-      <div class="col-12">
-        <div class="contact-form-area">
-          <form action="{% url 'atualizar_receita' %}" method="post" enctype="multipart/form-data">
-            {% csrf_token %}
-            <input type="text" id="receita_id" class="form_control" name="receita_id" value="{{receita.id}}" hidden>
-            <div class="row">
-              <div class="field-descricao">
-                <label for="descricao"><b>Descricao:</b></label>
-                <input type="text" id="descricao" name="descricao" class="vTextField" value="{{receita.descricao}}" maxlength="100" required>
-              </div>
-              <div class="field-categoria">
-                <label for="file"><b>Categoria:</b></label>
-                <select name="categoria">
-                <option value="{{receita.categoria}}">{{receita.categoria}}</option>
-                <option value="salario">Salário</option>
-                <option value="vale">Vale</option>
-                <option value="bonus">Bonus</option>
-                <option value="comissao">Comissão</option>
-                <option value="freelancer">Freelancer</option>
-                <option value="extra">Extra</option>
-                </select>
-              </div>
-              <div class="field-valor">
-                <label for="file"><b>Valor:</b></label>
-                <input type="decimal" name="valor" class="vTextField" value="{{receita.valor}}" required>
-              </div>
-              <div class="field-forma">
-                <label for="file"><b>Forma:</b></label>
-                <select name="forma">
-                <option value="{{receita.forma}}">{{receita.forma}}</option>
-                <option value="dinheiro">Dinheiro</option>
-                <option value="conta">Conta</option>
-                <option value="outros">Outros</option>
-                </select>
-              </div>
-              <div class="field-data">
-                <label for="file"><b>Data:</b></label>
-                <input type="text" name="data"  value="{{receita.data}}" class="vDateField" size="10" id="data"><span class="datetimeshortcuts">&nbsp;<a href="#">Hoje</a>&nbsp;|&nbsp;<a href="#" id="calendarlink0"><span class="date-icon" title="Escolha uma data"></span></a></span><input type="hidden" name="initial-data" value="2022-12-02" id="initial-data">
-                <input type="hidden" name="initial-data" value="2022-12-14" id="initial-id_data">
-              </div>
-                <!--      <div class="field-pago">
-                        <div class="checkbox-row">
-                        <input type="checkbox" name="pago" id="id_pago" checked><label class="vCheckboxLabel" for="id_pago">Pago</label>
-                        </div>
-                    </div>
-                -->
-              <div class="submit-row">
-                <button type="submit" class="btnPessoal">Atualizar</button>
-              </div>
-            </div>
-          </form>
-        </div>
-      </div>
-    </div>
+{% include 'partials/_alertas.html' %}
+<div class="d-flex justify-content-center">
+  <div class="col-12 col-md-4 col-lg-4 section-margin-100-100 boxPagina">
+    <h3 style="color:royalblue;" class="text-center"><strong>Editar Receita</strong></h3>
+    <form action="{% url 'atualizar_receita' %}" method="post">
+      {% csrf_token %}
+      {{formR.as_p}}
+      <button class="btnReceita text-center" type="submit">ATUALIZAR</button>
+    </form>
   </div>
 </div>
-  {% endblock %}
+
+{% endblock %}

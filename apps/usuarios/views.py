@@ -2,6 +2,8 @@ from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from pessoais.models import Receita, Despesa
+from pessoais.forms import ReceitasForm, DespesasForm
+
 
 
 def cadastrar_usuario(request):
@@ -57,11 +59,15 @@ def logout(request):
 
 def dashboard(request):
     """ APP individual do usuario logado no sistema """
+
     if request.user.is_authenticated:
         id = request.user.id
-        receitas = Receita.objects.all().order_by('data').filter(pessoa=id)
-        despesas = Despesa.objects.all().order_by('data').filter(pessoa=id)
-        return render(request, 'usuarios/dashboard.html', {'receitas' : receitas, 'despesas' : despesas})
+        receitas = Receita.objects.all().order_by('data').filter(pessoa=id, status=1)
+        despesas = Despesa.objects.all().order_by('data').filter(pessoa=id, status=1)
+        formR = ReceitasForm()
+        formD = DespesasForm()
+        dados = {'receitas': receitas, 'despesas': despesas, 'formR': formR, 'formD': formD}
+        return render(request, 'usuarios/dashboard.html', dados)
     else:
         return redirect('index')
 

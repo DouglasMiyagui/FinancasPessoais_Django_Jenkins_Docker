@@ -4,19 +4,15 @@
 <!-- ##### Header Area Start ##### -->
 
 <header>
-    <nav class="navbar">
-      <ul class="container-fluid justify-content-evenly">
-        {% if user.is_authenticated %}
-
-        <li><a href="{% url 'logout' %}" class="btnLogout col-4 col-md-4 col-lg-4 text-decoration-none">Sair</a></li>
-
-        {% else %}
-
-        <li><a href="{% url 'login' %}" class="btnLogin text-decoration-none">Entrar</a></li>
-        
-        {% endif %}
-      </ul>
-    </nav>
+  <ul class="flex-container">
+    <!-- Button Extrato -->
+    <!-- <li><button type="button" class="btnExtrato btn-light" style="padding: 3px 10px 3px;" data-bs-toggle="modal" data-bs-target="#cadastrar_receita">Cadastrar Receita</button></li> -->
+    <li><div style="color:royalblue;"><b>Receita</b></label></div></li>
+    <li><div style="color:darkcyan;"><b>Total</b></label></div></li>
+    <li><div style="color:crimson;"><b>Despesa</b></label></div></li>
+    <!-- Button Balanço-->
+    <!-- <li><button type="button" class="btnBalanco btn-light" style="padding: 3px 10px 3px;" data-bs-toggle="modal" data-bs-target="#cadastrar_despesa">Cadastrar Despesa</button></li> -->
+  </ul>
 </header>
 
   <!-- ##### Header Area End ##### -->
