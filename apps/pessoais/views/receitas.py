@@ -17,9 +17,9 @@ def cadastrar_receita(request):
             valor = request.POST['valor']
             forma = request.POST['forma']
             data = request.POST['data']
-            status = request.POST['status']
+            estado = request.POST['estado']
             user = get_object_or_404(User, pk=request.user.id)
-            receita = Receita.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, status=status)
+            receita = Receita.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, estado=estado)
             receita.save()
             return redirect('dashboard')
     else:
@@ -46,9 +46,9 @@ def atualizar_receita(request):
             valor = request.POST['valor']
             forma = request.POST['forma']
             data = request.POST['data']
-            status = request.POST['status']
+            estado = request.POST['estado']
             user = get_object_or_404(User, pk=request.user.id)
-            receita = Receita.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, status=status)
+            receita = Receita.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, estado=estado)
             receita.save()
             return redirect('dashboard')
     else:

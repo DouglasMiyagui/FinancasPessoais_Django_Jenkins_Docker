@@ -1,4 +1,4 @@
-from django.shortcuts import render, redirect, get_object_or_404, HttpResponse
+from django.shortcuts import render, redirect
 from django.contrib import auth, messages
 from django.contrib.auth.models import User
 from pessoais.models import Receita, Despesa
@@ -62,8 +62,8 @@ def dashboard(request):
 
     if request.user.is_authenticated:
         id = request.user.id
-        receitas = Receita.objects.all().order_by('data').filter(pessoa=id, status=1)
-        despesas = Despesa.objects.all().order_by('data').filter(pessoa=id, status=1)
+        receitas = Receita.objects.all().order_by('data').filter(pessoa=id, estado=1)
+        despesas = Despesa.objects.all().order_by('data').filter(pessoa=id, estado=1)
         formR = ReceitasForm()
         formD = DespesasForm()
         dados = {'receitas': receitas, 'despesas': despesas, 'formR': formR, 'formD': formD}

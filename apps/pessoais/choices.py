@@ -11,7 +11,7 @@ FORMA_RECEITA = (
     ('conta', 'Conta'),
     ('outros', 'Outros'),
 )
-STATUS_RECEITA = (
+ESTADO_RECEITA = (
     ('1', 'Pago'),
     ('2', 'A Pagar'),
 )
@@ -33,7 +33,7 @@ FORMA_DESPESA = (
     ('transferencia', 'Transferência'),
     ('outras', 'Outras'),
 )
-STATUS_DESPESA = (
+ESTADO_DESPESA = (
     ('1', 'Pago'),
     ('2', 'A Pagar'),
 )
