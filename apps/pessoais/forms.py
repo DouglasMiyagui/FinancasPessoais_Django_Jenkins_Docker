@@ -10,11 +10,11 @@ class ReceitasForm(forms.ModelForm):
     valor = forms.DecimalField(label='Valor')
     forma = forms.ChoiceField(label='Forma', required=False, choices=FORMA_RECEITA)
     data = forms.DateField(label='Data', initial=date.today, widget=NumberInput(attrs={'type': 'date'}))
-    estado = forms.ChoiceField(label='Status', required=False, choices=ESTADO_RECEITA)
+    pago = forms.ChoiceField(label='Status', required=False, choices=PAGO_RECEITA)
 
     class Meta:
         model = Receita
-        fields = ('descricao', 'categoria', 'valor', 'forma', 'data', 'estado')
+        fields = ('descricao', 'categoria', 'valor', 'forma', 'data', 'pago')
 
 
 class DespesasForm(forms.ModelForm):
@@ -23,8 +23,8 @@ class DespesasForm(forms.ModelForm):
     valor = forms.DecimalField(label='Valor')
     forma = forms.ChoiceField(label='Forma', required=False, choices=FORMA_DESPESA)
     data = forms.DateField(label='Data', initial=date.today, widget=NumberInput(attrs={'type': 'date'}))
-    estado = forms.ChoiceField(label='Status', required=False, choices=ESTADO_DESPESA)
+    pago = forms.ChoiceField(label='Status', required=False, choices=PAGO_DESPESA)
 
     class Meta:
         model = Despesa
-        fields = ('descricao', 'categoria', 'valor', 'forma', 'data', 'estado')
+        fields = ('descricao', 'categoria', 'valor', 'forma', 'data', 'pago')

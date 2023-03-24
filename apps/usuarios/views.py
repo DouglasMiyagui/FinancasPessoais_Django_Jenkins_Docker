@@ -62,8 +62,8 @@ def dashboard(request):
 
     if request.user.is_authenticated:
         id = request.user.id
-        receitas = Receita.objects.all().order_by('data').filter(pessoa=id, estado=1)
-        despesas = Despesa.objects.all().order_by('data').filter(pessoa=id, estado=1)
+        receitas = Receita.objects.all().order_by('data').filter(pessoa=id, pago=1)
+        despesas = Despesa.objects.all().order_by('data').filter(pessoa=id, pago=1)
         formR = ReceitasForm()
         formD = DespesasForm()
         dados = {'receitas': receitas, 'despesas': despesas, 'formR': formR, 'formD': formD}

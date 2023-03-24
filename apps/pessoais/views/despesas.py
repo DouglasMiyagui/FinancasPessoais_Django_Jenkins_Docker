@@ -17,9 +17,9 @@ def cadastrar_despesa(request):
             valor = request.POST['valor']
             forma = request.POST['forma']
             data = request.POST['data']
-            estado = request.POST['estado']
+            pago = request.POST['pago']
             user = get_object_or_404(User, pk=request.user.id)
-            despesa = Despesa.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, estado=estado)
+            despesa = Despesa.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, pago=pago)
             despesa.save()
             return redirect('dashboard')
     else:
@@ -46,9 +46,9 @@ def atualizar_despesa(request):
             valor = request.POST['valor']
             forma = request.POST['forma']
             data = request.POST['data']
-            estado = request.POST['estado']
+            pago = request.POST['pago']
             user = get_object_or_404(User, pk=request.user.id)
-            despesa = Despesa.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, estado=estado)
+            despesa = Despesa.objects.create(pessoa=user, descricao=descricao, categoria=categoria, valor=valor, forma=forma, data=data, pago=pago)
             despesa.save()
             return redirect('dashboard')
     else:

@@ -10,10 +10,10 @@ class Receita(models.Model):
     valor = models.DecimalField(max_digits=20, decimal_places=2)
     forma = models.CharField(max_length=20, choices=FORMA_RECEITA, blank=False, null=False, default='dinheiro')
     data = models.DateField(default=date.today, blank=True)
-    estado = models.CharField(max_length=1, choices=ESTADO_RECEITA, blank=False, null=False, default='1')
+    pago = models.CharField(max_length=1, choices=PAGO_RECEITA, blank=False, null=False, default='1')
 
     def __str__(self):
-        return self.estado
+        return self.pago
     
     def __str__(self):
         return self.descricao
@@ -28,7 +28,7 @@ class Despesa(models.Model):
     valor = models.DecimalField(max_digits=20, decimal_places=2)
     forma = models.CharField(max_length=20, choices=FORMA_DESPESA, blank=False, null=False, default='dinheiro')
     data = models.DateField(default=date.today, blank=True)
-    estado = models.CharField(max_length=1, choices=ESTADO_DESPESA, blank=False, null=False, default='1')
+    pago = models.CharField(max_length=1, choices=PAGO_DESPESA, blank=False, null=False, default='1')
 
     def __str__(self):
         return self.descricao
@@ -37,4 +37,4 @@ class Despesa(models.Model):
         return self.forma
 
     def __str__(self):
-        return self.estado
+        return self.pago
