@@ -7,7 +7,7 @@ from pessoais.forms import ReceitasForm, DespesasForm
 
 
 def cadastrar_usuario(request):
-    """ cadastra uma pessoa no sistema """
+    """ Função que cadastra um usuário no sistema """
     if request.method == 'POST':
         nome = request.POST['nome']
         email = request.POST['email']
@@ -36,14 +36,13 @@ def cadastrar_usuario(request):
         return render(request, 'usuarios/cadastrar_usuario.html')
 
 def login(request):
-    """ Realiza o login de uma pessoa no sistema """
+    """ Função que realiza o login de uma pessoa no sistema """
     if request.method == 'POST':
         email = request.POST['email']
         senha = request.POST['senha']
         if campo_vazio(email) or campo_vazio(senha):
             messages.error(request, 'Os campos email e senha não podem ficar em branco')
             return redirect('login')
-        print(email, senha)
         if User.objects.filter(email=email).exists():
             nome = User.objects.filter(email=email).values_list('username', flat=True).get()
             user = auth.authenticate(request, username=nome, password=senha)
@@ -54,11 +53,12 @@ def login(request):
     return render(request, 'usuarios/login.html')
 
 def logout(request):
+    """ Função que realiza o logout de uma pessoa no sistema """
     auth.logout(request)
     return redirect('index')
 
 def dashboard(request):
-    """ APP individual do usuario logado no sistema """
+    """ Função que carrega os dados de receitas e despesas no dashboard de um usuário autenticado """
 
     if request.user.is_authenticated:
         id = request.user.id

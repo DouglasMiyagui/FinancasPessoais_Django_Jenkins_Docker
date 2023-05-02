@@ -5,13 +5,15 @@ from pessoais.forms import DespesasForm
 
 def despesa(request, despesa_id):
     despesa = get_object_or_404(Despesa, pk=despesa_id)
-    return render(request, 'usuarios/dashboard.html', {'despesa' : despesa})
+    despesa_a_mostrar = {'despesa': despesa}
+    return render(request, 'pessoais/despesa.html', despesa_a_mostrar)
 
 def cadastrar_despesa(request):
     form = DespesasForm()
     if request.method == 'POST':
         form = DespesasForm(request.POST)
         if form.is_valid():
+            print(form.cleaned_data)
             descricao = request.POST['descricao']
             categoria =request.POST['categoria']
             valor = request.POST['valor']
